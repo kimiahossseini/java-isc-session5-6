@@ -12,7 +12,7 @@ public class createlistfromdb {
 	private static final String PASSWORD = ""; 
 	public static void main(String[] args) throws SQLException {
 	
-	//1)list DEPARTMENT_NAME belong to COUNTRY_ID=US-----------------------------------
+	//1)--------------------------list DEPARTMENT_NAME belong to COUNTRY_ID=US-----------------------------------
 		String countid="US";
 		try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
 				PreparedStatement preparedstatement = connection.prepareStatement("""
@@ -38,7 +38,7 @@ public class createlistfromdb {
 		}
 		System.err.println("*************************");
 		
-	//2) list employees form department-id=1-----------------------------------------------------------
+	//2) -------------------------------list employees form department-id=1-----------------------------------------------------------
 		String depid="1";
 		try (Connection connection1 = DriverManager.getConnection(URL,USER,PASSWORD);
 			PreparedStatement preparedstatement1 = connection1.prepareStatement("SELECT * FROM EMPLOYEES WHERE DEPARTMENT_ID =?")) 
@@ -58,7 +58,7 @@ public class createlistfromdb {
 	
 		}
 	System.err.println("*********************************************");	
-	//3)insert one employee to employee table----------------------------------------------------------	
+	//3)-----------------------------insert one employee to employee table----------------------------------------------------------	
 	try (
 		 Connection connection3 = DriverManager.getConnection(URL, USER, PASSWORD);
 				PreparedStatement preparedstatement3 = connection3.prepareStatement
@@ -81,7 +81,7 @@ public class createlistfromdb {
 
 		}
 	System.err.println("*********************************************4");	
-	//4) update countries table , change country-name with country-id=AR to ARGENTINAAAA-----------
+	//4) -------------------------------update countries table , change country-name with country-id=AR to ARGENTINAAAA-----------
     try (
             Connection connection4 = DriverManager.getConnection(URL, USER, PASSWORD);                
     		PreparedStatement preparedStatement4 = connection4.prepareStatement(
