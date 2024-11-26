@@ -15,11 +15,14 @@ public class createlistfromdb {
 	//1)list DEPARTMENT_NAME belong to COUNTRY_ID=US-----------------------------------
 		String countid="US";
 		try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
-				PreparedStatement preparedstatement = connection.prepareStatement("SELECT d.DEPARTMENT_NAME\r\n"
-						+ "FROM DEPARTMENTS d\r\n"
-						+ "JOIN LOCATIONS l\r\n"
-						+ "ON d.LOCATION_ID = l.LOCATION_ID\r\n"
-						+ "WHERE l.COUNTRY_ID = ?")) 
+				PreparedStatement preparedstatement = connection.prepareStatement("""
+						SELECT d.DEPARTMENT_NAME
+						FROM DEPARTMENTS d
+						JOIN LOCATIONS l
+						ON d.LOCATION_ID = l.LOCATION_ID
+						WHERE l.COUNTRY_ID = ?
+						
+						""")) 
 		{
 			System.out.println("Connected to the H2 database successfully!");
 			preparedstatement.setString(1, countid);
